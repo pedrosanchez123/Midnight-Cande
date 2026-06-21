@@ -9,6 +9,9 @@ dist
 dist-ssr
 *.local
 
+# Claude Code (configuración local)
+.claude/
+
 # Editor
 .vscode/*
 !.vscode/extensions.json
