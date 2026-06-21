@@ -5,7 +5,7 @@ export default function About() {
         <div className="about__text">
           <h2 className="section-title">Sobre nosotros</h2>
           <p>
-            <strong>Midnight Cande</strong> nació en 2021 de una idea simple: la mejor versión de
+            <strong>Midnight Club</strong> nació en 2021 de una idea simple: la mejor versión de
             cada persona aparece cuando cae la noche. Somos una marca independiente que diseña
             prendas con carácter, pensadas para acompañarte desde la oficina hasta la pista de baile.
           </p>

@@ -1,4 +1,4 @@
-# Midnight Cande 🌙
+# Midnight Club 🌙
 
 Tienda de ropa online construida con **React + Vite**. Moda nocturna con actitud.
 
@@ -14,13 +14,29 @@ Tienda de ropa online construida con **React + Vite**. Moda nocturna con actitud
 
 - Node.js 18+ (probado con Node 24)
 
-## Cómo ejecutar
+## Ejecución local
+
+Clona el repositorio, instala las dependencias y levanta el servidor de desarrollo:
 
 ```bash
-npm install      # instalar dependencias
-npm run dev      # servidor de desarrollo (http://localhost:5173)
+# 1. Clonar el repositorio
+git clone https://github.com/pedrosanchez123/Midnight-Cande.git
+cd Midnight-Cande
+
+# 2. Instalar dependencias
+npm install
+
+# 3. Levantar el servidor de desarrollo
+npm run dev
+```
+
+Luego abre **http://localhost:5173** en tu navegador.
+
+### Otros comandos
+
+```bash
 npm run build    # build de producción en /dist
-npm run preview  # previsualizar el build
+npm run preview  # previsualizar el build de producción
 ```
 
 ## Estructura
@@ -44,4 +60,4 @@ src/
 
 ---
 
-© Midnight Cande
+© Midnight Club

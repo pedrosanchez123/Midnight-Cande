@@ -1,4 +1,4 @@
-// Catálogo de productos de Midnight Cande.
+// Catálogo de productos de Midnight Club.
 // Las imágenes usan un placeholder SVG generado en runtime (ver ProductCard),
 // por lo que el catálogo funciona sin assets externos ni conexión.
 

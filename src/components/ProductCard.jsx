@@ -47,7 +47,7 @@ function Thumb({ product }) {
         fill="#ffffff"
         opacity="0.5"
       >
-        MIDNIGHT CANDE
+        MIDNIGHT CLUB
       </text>
     </svg>
   )

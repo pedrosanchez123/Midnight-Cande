@@ -9,7 +9,7 @@ export default function Navbar({ onOpenCart }) {
         <a href="#inicio" className="brand">
           <span className="brand__moon" aria-hidden="true" />
           <span className="brand__name">
-            Midnight <span className="brand__accent">Cande</span>
+            Midnight <span className="brand__accent">Club</span>
           </span>
         </a>
 

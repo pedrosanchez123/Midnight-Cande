@@ -4,7 +4,7 @@ export default function Footer() {
       <div className="footer__inner">
         <div className="footer__brand">
           <span className="brand__name">
-            Midnight <span className="brand__accent">Cande</span>
+            Midnight <span className="brand__accent">Club</span>
           </span>
           <p>Moda con actitud para tus mejores noches.</p>
         </div>
@@ -15,7 +15,7 @@ export default function Footer() {
         </nav>
       </div>
       <p className="footer__copy">
-        © {new Date().getFullYear()} Midnight Cande. Todos los derechos reservados.
+        © {new Date().getFullYear()} Midnight Club. Todos los derechos reservados.
       </p>
     </footer>
   )
