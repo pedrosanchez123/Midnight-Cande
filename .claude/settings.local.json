@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "PowerShell(Get-ChildItem -Force \"C:\\\\Users\\\\benik\\\\midnight cande\" | Select-Object Name, Length; \"---NODE---\"; \\(Get-Command node\\).Source; node -v; npm -v)",
+      "PowerShell(npm install --silent 2>&1 | Select-Object -Last 15; \"EXIT:$LASTEXITCODE\")"
+    ]
+  }
+}
