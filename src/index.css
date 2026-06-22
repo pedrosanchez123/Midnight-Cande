@@ -943,6 +943,7 @@ svg {
   top: 2rem;
   right: 1.5rem;
   width: 120px;
+  height: auto;
   opacity: 0.85;
   filter: drop-shadow(0 8px 24px rgba(255, 111, 174, 0.4));
   pointer-events: none;

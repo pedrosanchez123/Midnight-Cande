@@ -1,11 +1,30 @@
+import { useState } from 'react'
 import { site } from '../data/site.js'
 import Lips from './Lips.jsx'
 
+// Usa una imagen real (/public/lips.png) si existe; si no, el beso SVG.
+// 👉 Para usar tu imagen: guárdala como  public/lips.png  (ideal con fondo transparente).
+const LIPS_SRC = '/lips.png'
+
 function HeroLips() {
+  const [useFallback, setUseFallback] = useState(false)
+
+  if (useFallback) {
+    return (
+      <svg className="hero__lips" viewBox="0 0 120 84" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <Lips id="hero" />
+      </svg>
+    )
+  }
+
   return (
-    <svg className="hero__lips" viewBox="0 0 120 84" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-      <Lips id="hero" />
-    </svg>
+    <img
+      className="hero__lips"
+      src={LIPS_SRC}
+      alt=""
+      aria-hidden="true"
+      onError={() => setUseFallback(true)}
+    />
   )
 }
 
