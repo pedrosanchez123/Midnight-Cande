@@ -15,6 +15,9 @@
   --max: 1180px;
   --shadow: 0 18px 50px rgba(0, 0, 0, 0.55);
   --shadow-pink: 0 14px 40px rgba(255, 111, 174, 0.18);
+  /* Curvas de animación (fuertes, estilo design-eng) */
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+  --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
 }
 
 * {
@@ -69,12 +72,9 @@ svg {
   font-size: 0.95rem;
   font-weight: 600;
   cursor: pointer;
-  transition: transform 0.15s ease, background 0.2s ease, color 0.2s ease, border 0.2s ease;
+  transition: transform 0.16s var(--ease-out), background 0.2s ease, color 0.2s ease,
+    border-color 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
   font-family: inherit;
-}
-
-.btn:active {
-  transform: translateY(1px);
 }
 
 .btn--primary {
@@ -85,6 +85,7 @@ svg {
 
 .btn--primary:hover {
   filter: brightness(1.08);
+  box-shadow: 0 18px 44px rgba(255, 111, 174, 0.3);
 }
 
 .btn--ghost {
@@ -96,6 +97,18 @@ svg {
 .btn--ghost:hover {
   border-color: var(--pink);
   color: var(--pink-soft);
+}
+
+/* Lift en hover (solo punteros reales) */
+@media (hover: hover) and (pointer: fine) {
+  .btn:hover {
+    transform: translateY(-2px);
+  }
+}
+
+/* Press feedback (todos los dispositivos); declarado después para ganar al hover */
+.btn:active {
+  transform: scale(0.97);
 }
 
 /* Botón con trazo (borde) degradado de Instagram, animado (gira) */
@@ -140,12 +153,6 @@ svg {
 .btn--ig:hover {
   filter: brightness(1.12);
   box-shadow: 0 8px 26px rgba(214, 41, 118, 0.35);
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .btn--ig {
-    animation: none;
-  }
 }
 
 .btn--block {
@@ -214,8 +221,33 @@ svg {
   color: var(--text-dim);
 }
 
+.nav-links a {
+  position: relative;
+  transition: color 0.2s ease;
+}
+
+/* Subrayado fucsia que crece desde la izquierda (GPU: scaleX) */
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 100%;
+  height: 1.5px;
+  background: var(--pink);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.25s var(--ease-out);
+}
+
 .nav-links a:hover {
   color: var(--pink-soft);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .nav-links a:hover::after {
+    transform: scaleX(1);
+  }
 }
 
 .cart-button {
@@ -229,12 +261,16 @@ svg {
   display: grid;
   place-items: center;
   cursor: pointer;
-  transition: border 0.2s ease, color 0.2s ease;
+  transition: border-color 0.2s ease, color 0.2s ease, transform 0.16s var(--ease-out);
 }
 
 .cart-button:hover {
   border-color: var(--pink);
   color: var(--pink-soft);
+}
+
+.cart-button:active {
+  transform: scale(0.92);
 }
 
 .cart-button__badge {
@@ -251,6 +287,22 @@ svg {
   display: grid;
   place-items: center;
   padding: 0 5px;
+  animation: badge-pop 0.28s var(--ease-out);
+}
+
+/* Badge nuevo: aparece con un pop suave (acción ocasional → admite delight) */
+@keyframes badge-pop {
+  from {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+  60% {
+    transform: scale(1.2);
+    opacity: 1;
+  }
+  to {
+    transform: scale(1);
+  }
 }
 
 /* ---------- Hero ---------- */
@@ -391,12 +443,17 @@ svg {
   font-size: 0.88rem;
   cursor: pointer;
   font-family: inherit;
-  transition: all 0.18s ease;
+  transition: background-color 0.18s ease, color 0.18s ease, border-color 0.18s ease,
+    transform 0.16s var(--ease-out);
 }
 
 .chip:hover {
   color: var(--text);
   border-color: var(--pink);
+}
+
+.chip:active {
+  transform: scale(0.94);
 }
 
 .chip--active {
@@ -420,13 +477,18 @@ svg {
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  transition: transform 0.2s ease, border 0.2s ease, box-shadow 0.2s ease;
+  transition: transform 0.2s var(--ease-out), border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 .card:hover {
-  transform: translateY(-4px);
   border-color: var(--pink);
   box-shadow: var(--shadow);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .card:hover {
+    transform: translateY(-4px);
+  }
 }
 
 .card__media {
@@ -509,12 +571,17 @@ svg {
   font-size: 0.82rem;
   cursor: pointer;
   font-family: inherit;
-  transition: all 0.15s ease;
+  transition: background-color 0.15s ease, color 0.15s ease, border-color 0.15s ease,
+    transform 0.16s var(--ease-out);
 }
 
 .size-chip:hover:not(.size-chip--active) {
   color: var(--text);
   border-color: var(--pink);
+}
+
+.size-chip:active {
+  transform: scale(0.92);
 }
 
 .size-chip--active {
@@ -1034,13 +1101,20 @@ svg {
   place-items: center;
   color: #fff;
   box-shadow: var(--shadow);
-  transition: transform 0.18s ease, filter 0.18s ease;
+  transition: transform 0.18s var(--ease-out), filter 0.18s ease, box-shadow 0.18s ease;
   position: relative;
 }
 
-.quick-fab:hover {
-  transform: translateY(-3px) scale(1.05);
-  filter: brightness(1.08);
+@media (hover: hover) and (pointer: fine) {
+  .quick-fab:hover {
+    transform: translateY(-3px) scale(1.05);
+    filter: brightness(1.08);
+    box-shadow: 0 16px 38px rgba(0, 0, 0, 0.5);
+  }
+}
+
+.quick-fab:active {
+  transform: scale(0.92);
 }
 
 .quick-fab--wa {
@@ -1094,6 +1168,7 @@ svg {
   font-weight: 600;
   font-size: 0.92rem;
   color: #fff;
+  transition: transform 0.16s var(--ease-out), filter 0.18s ease, box-shadow 0.18s ease;
 }
 
 .social-btn svg {
@@ -1109,8 +1184,16 @@ svg {
   background: linear-gradient(135deg, #feda75, #d62976 45%, #962fbf 75%, #4f5bd5);
 }
 
-.social-btn:hover {
-  filter: brightness(1.08);
+@media (hover: hover) and (pointer: fine) {
+  .social-btn:hover {
+    filter: brightness(1.08);
+    transform: translateY(-2px);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.35);
+  }
+}
+
+.social-btn:active {
+  transform: scale(0.97);
 }
 
 /* ---------- Responsive ---------- */
@@ -1125,5 +1208,35 @@ svg {
   .hero__lips {
     width: 120px;
     opacity: 0.55;
+  }
+}
+
+/* ---------- Accesibilidad: menos movimiento (gentil, no cero) ---------- */
+@media (prefers-reduced-motion: reduce) {
+  /* Se conservan transiciones de color/opacidad; se elimina el movimiento. */
+  .btn:hover,
+  .btn:active,
+  .chip:active,
+  .size-chip:active,
+  .cart-button:active,
+  .quick-fab:hover,
+  .quick-fab:active,
+  .social-btn:hover,
+  .social-btn:active,
+  .card:hover {
+    transform: none;
+  }
+  .nav-links a:hover::after {
+    transform: scaleX(1);
+    transition: none;
+  }
+  .btn--ig {
+    animation: none;
+  }
+  .cart-button__badge {
+    animation: none;
+  }
+  html {
+    scroll-behavior: auto;
   }
 }
