@@ -1,5 +1,5 @@
 import { useCart } from '../context/CartContext.jsx'
-import Logo from './Logo.jsx'
+import BrandMark from './BrandMark.jsx'
 
 export default function Navbar({ onOpenCart }) {
   const { count } = useCart()
@@ -8,7 +8,7 @@ export default function Navbar({ onOpenCart }) {
     <header className="navbar">
       <div className="navbar__inner">
         <a href="#inicio" className="brand">
-          <Logo size={46} />
+          <BrandMark size={46} />
           <span className="brand__name">
             Midnight <span className="brand__accent">Club</span>
           </span>

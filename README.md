@@ -57,6 +57,8 @@ src/
 - **Productos:** edita `src/data/products.js`.
 - **Colores / tema:** variables CSS en `:root` dentro de `src/index.css`.
 - **Imágenes:** las tarjetas usan un placeholder SVG generado en runtime; reemplázalo en `ProductCard.jsx` por `<img>` reales cuando tengas fotos.
+- **Logo real:** guarda la imagen del logo como `public/logo.png` y se cargará automáticamente en el navbar. Si el archivo no existe, se muestra una recreación SVG (`Logo.jsx`). Para usar otra extensión, ajusta `LOGO_SRC` en `BrandMark.jsx`.
+- **Redes / contacto:** edita WhatsApp, Instagram y email en `src/data/site.js`.
 
 ---
 
