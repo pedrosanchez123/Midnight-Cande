@@ -1,0 +1,40 @@
+id,talle,stock,nombre
+1,S,5,Vestido Eclipse
+1,M,5,Vestido Eclipse
+1,L,5,Vestido Eclipse
+2,S,5,Blazer Medianoche
+2,M,5,Blazer Medianoche
+2,L,5,Blazer Medianoche
+2,XL,5,Blazer Medianoche
+3,XS,5,Top Luna Llena
+3,S,5,Top Luna Llena
+3,M,5,Top Luna Llena
+4,S,5,Jeans Constelación
+4,M,5,Jeans Constelación
+4,L,5,Jeans Constelación
+5,XS,5,Falda Aurora
+5,S,5,Falda Aurora
+5,M,5,Falda Aurora
+5,L,5,Falda Aurora
+6,S,5,Camisa Penumbra
+6,M,5,Camisa Penumbra
+6,L,5,Camisa Penumbra
+6,XL,5,Camisa Penumbra
+7,M,5,Abrigo Sombra
+7,L,5,Abrigo Sombra
+7,XL,5,Abrigo Sombra
+8,S,5,Vestido Nocturno
+8,M,5,Vestido Nocturno
+8,L,5,Vestido Nocturno
+9,XS,5,Pantalón Cometa
+9,S,5,Pantalón Cometa
+9,M,5,Pantalón Cometa
+9,L,5,Pantalón Cometa
+10,Único,5,Bolso Estrella
+11,S,5,Cinturón Órbita
+11,M,5,Cinturón Órbita
+11,L,5,Cinturón Órbita
+12,XS,5,Falda Cenit
+12,S,5,Falda Cenit
+12,M,5,Falda Cenit
+12,L,5,Falda Cenit
