@@ -13,5 +13,4 @@ export const site = {
     'https://www.instagram.com/midnightclb.ind?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==',
   whatsappUrl: `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(WHATSAPP_MESSAGE)}`,
   email: 'hola@midnightclub.com',
-  creatorHandle: '@_cande_sol',
 }

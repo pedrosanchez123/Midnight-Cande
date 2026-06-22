@@ -5,10 +5,9 @@ export default function About() {
         <div className="about__text">
           <h2 className="section-title">Sobre nosotras</h2>
           <p>
-            <strong>Midnight Club</strong> es indumentaria femenina con actitud, creada por{' '}
-            <strong>Cande</strong> para chicas que no pasan desapercibidas. Acá no hay{' '}
-            <em>ordinary girls</em>: hay comunidad, noches infinitas y prendas que cuentan una
-            historia.
+            <strong>Midnight Club</strong> es indumentaria femenina con actitud, para chicas que no
+            pasan desapercibidas. Acá no hay <em>ordinary girls</em>: hay comunidad, noches
+            infinitas y prendas que cuentan una historia.
           </p>
           <p>
             Trabajamos por <em>drops</em> en ediciones limitadas —cuando se agota, se agota:{' '}

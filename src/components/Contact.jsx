@@ -47,9 +47,6 @@ export default function Contact() {
               <span>✦</span> {site.instagramHandle}
             </li>
             <li>
-              <span>♡</span> Creado por {site.creatorHandle}
-            </li>
-            <li>
               <span>◷</span> Envíos a todo el país
             </li>
           </ul>

@@ -27,7 +27,7 @@ export default function QuickActions() {
         aria-label="Escríbenos por WhatsApp"
       >
         <WhatsAppIcon />
-        <span className="quick-fab__label">WhatsApp de Cande</span>
+        <span className="quick-fab__label">Escríbenos por WhatsApp</span>
       </a>
       <a
         className="quick-fab quick-fab--ig"

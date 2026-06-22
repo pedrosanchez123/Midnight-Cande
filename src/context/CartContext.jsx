@@ -2,7 +2,7 @@ import { createContext, useContext, useEffect, useMemo, useReducer } from 'react
 
 const CartContext = createContext(null)
 
-const STORAGE_KEY = 'midnight-cande-cart'
+const STORAGE_KEY = 'midnight-club-cart'
 
 function init() {
   try {

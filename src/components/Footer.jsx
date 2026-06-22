@@ -23,7 +23,7 @@ export default function Footer() {
         </nav>
       </div>
       <p className="footer__copy">
-        © {new Date().getFullYear()} Midnight Club · {site.instagramHandle} · By {site.creatorHandle}
+        © {new Date().getFullYear()} Midnight Club · {site.instagramHandle}
       </p>
     </footer>
   )

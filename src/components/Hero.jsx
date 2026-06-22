@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { site } from '../data/site.js'
 import Lips from './Lips.jsx'
+import { InstagramIcon } from './QuickActions.jsx'
 
 // Usa una imagen real (/public/lips.png) si existe; si no, el beso SVG.
 // 👉 Para usar tu imagen: guárdala como  public/lips.png  (ideal con fondo transparente).
@@ -50,9 +51,9 @@ export default function Hero() {
             href={site.instagramUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="btn btn--ghost"
+            className="btn btn--ig"
           >
-            Únete al club
+            <InstagramIcon /> Únete al club
           </a>
         </div>
         <p className="hero__marquee">

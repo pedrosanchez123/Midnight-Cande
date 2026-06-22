@@ -98,6 +98,25 @@ svg {
   color: var(--pink-soft);
 }
 
+/* Botón con trazo (borde) degradado de Instagram */
+.btn--ig {
+  border: 2px solid transparent;
+  color: #fff;
+  background:
+    linear-gradient(var(--bg-soft), var(--bg-soft)) padding-box,
+    linear-gradient(115deg, #feda75, #fa7e1e 25%, #d62976 50%, #962fbf 75%, #4f5bd5) border-box;
+}
+
+.btn--ig svg {
+  width: 18px;
+  height: 18px;
+}
+
+.btn--ig:hover {
+  filter: brightness(1.12);
+  box-shadow: 0 8px 26px rgba(214, 41, 118, 0.35);
+}
+
 .btn--block {
   width: 100%;
 }
