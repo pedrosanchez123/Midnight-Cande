@@ -10,7 +10,7 @@ export const products = [
     price: 45990,
     color: 'Negro',
     sizes: ['S', 'M', 'L'],
-    tag: 'Nuevo',
+    tag: 'Last Call',
     description: 'Vestido midi de satén con caída fluida. El básico nocturno por excelencia.',
   },
   {
@@ -20,7 +20,7 @@ export const products = [
     price: 62990,
     color: 'Negro',
     sizes: ['S', 'M', 'L', 'XL'],
-    tag: 'Destacado',
+    tag: 'Archive',
     description: 'Blazer entallado de corte oversize con hombreras estructuradas.',
   },
   {
@@ -48,7 +48,7 @@ export const products = [
     price: 27990,
     color: 'Dorado',
     sizes: ['XS', 'S', 'M', 'L'],
-    tag: 'Nuevo',
+    tag: 'Last Call',
     description: 'Falda plisada metalizada que atrapa cada destello de luz.',
   },
   {
@@ -67,7 +67,7 @@ export const products = [
     price: 89990,
     color: 'Gris',
     sizes: ['M', 'L', 'XL'],
-    tag: 'Destacado',
+    tag: 'Archive',
     description: 'Abrigo largo de lana mezcla con cinturón removible.',
   },
   {
@@ -95,7 +95,7 @@ export const products = [
     price: 21990,
     color: 'Dorado',
     sizes: ['Único'],
-    tag: 'Nuevo',
+    tag: 'Last Call',
     description: 'Bolso de mano con cadena metálica y broche en forma de estrella.',
   },
   {

@@ -3,16 +3,17 @@ export default function About() {
     <section className="about" id="nosotros">
       <div className="about__grid">
         <div className="about__text">
-          <h2 className="section-title">Sobre nosotros</h2>
+          <h2 className="section-title">Sobre nosotras</h2>
           <p>
-            <strong>Midnight Club</strong> nació en 2021 de una idea simple: la mejor versión de
-            cada persona aparece cuando cae la noche. Somos una marca independiente que diseña
-            prendas con carácter, pensadas para acompañarte desde la oficina hasta la pista de baile.
+            <strong>Midnight Club</strong> es indumentaria femenina con actitud, creada por{' '}
+            <strong>Cande</strong> para chicas que no pasan desapercibidas. Acá no hay{' '}
+            <em>ordinary girls</em>: hay comunidad, noches infinitas y prendas que cuentan una
+            historia.
           </p>
           <p>
-            Trabajamos con talleres locales, materiales de bajo impacto y producción en pequeñas
-            tandas para cuidar cada detalle —y al planeta. Cada prenda se piensa para durar, no para
-            una sola temporada.
+            Trabajamos por <em>drops</em> en ediciones limitadas —cuando se agota, se agota:{' '}
+            <strong>no restock</strong>. Cada lanzamiento es un momento, y vos decidís si querés ser
+            parte. <em>Not everything gets a second chance.</em>
           </p>
 
           <div className="about__stats">

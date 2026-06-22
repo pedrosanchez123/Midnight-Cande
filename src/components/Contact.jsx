@@ -1,4 +1,6 @@
 import { useState } from 'react'
+import { site } from '../data/site.js'
+import { WhatsAppIcon, InstagramIcon } from './QuickActions.jsx'
 
 export default function Contact() {
   const [form, setForm] = useState({ name: '', email: '', message: '' })
@@ -39,27 +41,35 @@ export default function Contact() {
           </p>
           <ul className="contact__list">
             <li>
-              <span>✉</span> hola@midnightcande.com
+              <span>✉</span> {site.email}
             </li>
             <li>
-              <span>☏</span> +56 9 1234 5678
+              <span>✦</span> {site.instagramHandle}
             </li>
             <li>
-              <span>⌖</span> Showroom: Av. Providencia 1234, Santiago
+              <span>♡</span> Creado por {site.creatorHandle}
             </li>
             <li>
-              <span>◷</span> Lun a Vie · 10:00 – 19:00
+              <span>◷</span> Envíos a todo el país
             </li>
           </ul>
-          <div className="contact__social">
-            <a href="#" aria-label="Instagram">
-              Instagram
+
+          <div className="social-cta">
+            <a
+              className="social-btn social-btn--wa"
+              href={site.whatsappUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <WhatsAppIcon /> Escribir por WhatsApp
             </a>
-            <a href="#" aria-label="TikTok">
-              TikTok
-            </a>
-            <a href="#" aria-label="Pinterest">
-              Pinterest
+            <a
+              className="social-btn social-btn--ig"
+              href={site.instagramUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <InstagramIcon /> Seguir en Instagram
             </a>
           </div>
         </div>

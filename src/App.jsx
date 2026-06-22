@@ -6,6 +6,7 @@ import About from './components/About.jsx'
 import Contact from './components/Contact.jsx'
 import Footer from './components/Footer.jsx'
 import Cart from './components/Cart.jsx'
+import QuickActions from './components/QuickActions.jsx'
 
 export default function App() {
   const [cartOpen, setCartOpen] = useState(false)
@@ -21,6 +22,7 @@ export default function App() {
       </main>
       <Footer />
       <Cart open={cartOpen} onClose={() => setCartOpen(false)} />
+      <QuickActions />
     </>
   )
 }

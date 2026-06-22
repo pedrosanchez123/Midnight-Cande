@@ -7,7 +7,7 @@ export default function Navbar({ onOpenCart }) {
     <header className="navbar">
       <div className="navbar__inner">
         <a href="#inicio" className="brand">
-          <span className="brand__moon" aria-hidden="true" />
+          <span className="brand__logo" aria-hidden="true">CM</span>
           <span className="brand__name">
             Midnight <span className="brand__accent">Club</span>
           </span>
