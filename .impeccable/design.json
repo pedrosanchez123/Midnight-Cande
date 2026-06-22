@@ -1,9 +1,15 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-06-22T00:00:00.000Z",
+  "generatedAt": "2026-06-22T17:30:00.000Z",
   "title": "Design System: Midnight Club",
   "extensions": {
     "colorMeta": {
+      "success": {
+        "role": "tertiary",
+        "displayName": "Verde Confirmación",
+        "canonical": "#25d366",
+        "tonalRamp": ["#06231a", "#0a3a2b", "#0f5a41", "#128c7e", "#1bb673", "#25d366", "#6fe6a0", "#b6f3cf"]
+      },
       "pink": {
         "role": "primary",
         "displayName": "Fucsia Neón",

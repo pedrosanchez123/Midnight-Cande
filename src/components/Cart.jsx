@@ -1,15 +1,34 @@
 import { useState } from 'react'
 import { useCart } from '../context/CartContext.jsx'
 import { formatPrice } from '../utils/format.js'
+import { whatsappLink } from '../data/site.js'
+import { WhatsAppIcon } from './QuickActions.jsx'
 
 export default function Cart({ open, onClose }) {
   const { items, count, total, increment, decrement, removeItem, clear } = useCart()
-  const [confirmed, setConfirmed] = useState(false)
+  const [sent, setSent] = useState(false)
+  const [confirmClear, setConfirmClear] = useState(false)
 
-  function checkout() {
-    setConfirmed(true)
+  // Arma el pedido y abre WhatsApp con el resumen.
+  function orderByWhatsApp() {
+    const lines = items.map(
+      (i) => `• ${i.name} (${i.color}, talle ${i.size}) x${i.qty} — ${formatPrice(i.price * i.qty)}`,
+    )
+    const message = `Hola Midnight Club! 💋 Quiero hacer este pedido:\n\n${lines.join(
+      '\n',
+    )}\n\nTotal: ${formatPrice(total)}`
+    window.open(whatsappLink(message), '_blank', 'noopener,noreferrer')
+    setSent(true)
+    setTimeout(() => setSent(false), 6000)
+  }
+
+  function handleClear() {
+    if (!confirmClear) {
+      setConfirmClear(true)
+      return
+    }
     clear()
-    setTimeout(() => setConfirmed(false), 3500)
+    setConfirmClear(false)
   }
 
   return (
@@ -33,18 +52,22 @@ export default function Cart({ open, onClose }) {
         </div>
 
         <div className="drawer__body">
-          {confirmed ? (
-            <div className="checkout-done">
-              <div className="checkout-done__icon">✓</div>
-              <h3>¡Gracias por tu compra!</h3>
-              <p>Tu pedido fue recibido. Te contactaremos pronto para coordinar el envío.</p>
-            </div>
-          ) : items.length === 0 ? (
+          {items.length === 0 ? (
             <div className="drawer__empty">
-              <p>Tu carrito está vacío.</p>
-              <button className="btn btn--ghost" onClick={onClose} type="button">
-                Seguir comprando
-              </button>
+              {sent ? (
+                <div className="checkout-done">
+                  <div className="checkout-done__icon">💬</div>
+                  <h3>¡Te esperamos en WhatsApp!</h3>
+                  <p>Abrimos el chat con tu pedido. Confirmá ahí para coordinar pago y envío.</p>
+                </div>
+              ) : (
+                <>
+                  <p>Tu carrito está vacío.</p>
+                  <button className="btn btn--ghost" onClick={onClose} type="button">
+                    Seguir comprando
+                  </button>
+                </>
+              )}
             </div>
           ) : (
             <ul className="cart-list">
@@ -81,18 +104,34 @@ export default function Cart({ open, onClose }) {
           )}
         </div>
 
-        {!confirmed && items.length > 0 && (
+        {items.length > 0 && (
           <div className="drawer__foot">
             <div className="drawer__total">
               <span>Total</span>
               <strong>{formatPrice(total)}</strong>
             </div>
-            <button className="btn btn--primary btn--block" onClick={checkout} type="button">
-              Finalizar compra
+            <button
+              className="btn btn--primary btn--block"
+              onClick={orderByWhatsApp}
+              type="button"
+            >
+              <WhatsAppIcon /> Pedir por WhatsApp
             </button>
-            <button className="drawer__clear" onClick={clear} type="button">
-              Vaciar carrito
-            </button>
+            {confirmClear ? (
+              <div className="drawer__confirm">
+                <span>¿Vaciar el carrito?</span>
+                <button onClick={handleClear} type="button">
+                  Sí, vaciar
+                </button>
+                <button onClick={() => setConfirmClear(false)} type="button">
+                  No
+                </button>
+              </div>
+            ) : (
+              <button className="drawer__clear" onClick={handleClear} type="button">
+                Vaciar carrito
+              </button>
+            )}
           </div>
         )}
       </aside>

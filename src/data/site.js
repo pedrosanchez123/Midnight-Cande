@@ -14,3 +14,8 @@ export const site = {
   whatsappUrl: `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(WHATSAPP_MESSAGE)}`,
   email: 'hola@midnightclub.com',
 }
+
+// Arma un link de WhatsApp con un mensaje dinámico (ej. el resumen del pedido).
+export function whatsappLink(message) {
+  return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`
+}

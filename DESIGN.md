@@ -16,6 +16,8 @@ colors:
   ink-plum: "#2b0a1a"
   white: "#ffffff"
   alert: "#e26d8a"
+  success: "#25d366"
+  success-deep: "#128c7e"
 typography:
   display:
     fontFamily: "Playfair Display, Georgia, serif"
@@ -140,6 +142,9 @@ el rosa: del fucsia neón al magenta labial.
 ### Tertiary
 - **Rosa Alerta** (#e26d8a): solo para errores de validación y acciones
   destructivas (eliminar del carrito). Nunca decorativo.
+- **Verde Confirmación** (#25d366 / #128c7e): único verde permitido, ligado a
+  WhatsApp y a estados de éxito ("Agregado", "Pedir por WhatsApp"). Funcional,
+  nunca decorativo (es la excepción de la regla One Lipstick).
 
 ### Named Rules
 **The One Lipstick Rule.** El fucsia/magenta es la única familia de acento. Está
@@ -154,7 +159,6 @@ distinguen por capas tonales (#16101f → #211733), no por bordes brillantes.
 
 **Display Font:** Playfair Display (con Georgia, serif de respaldo)
 **Body Font:** Inter (con Segoe UI / system-ui)
-**Accent Font:** Dancing Script (cursiva, reservada para guiños tipo firma)
 
 **Character:** El contraste serif/sans es el motor del look editorial: el Playfair
 de alto contraste y trazo fino pone el drama y el glamour; el Inter mantiene el

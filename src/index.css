@@ -159,9 +159,15 @@ svg {
   width: 100%;
 }
 
+.btn svg {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+}
+
 .btn--added {
-  background: linear-gradient(135deg, #4caf76, #6fd49a);
-  color: #08200f;
+  background: linear-gradient(135deg, #128c7e, #25d366);
+  color: #06231a;
 }
 
 /* ---------- Navbar ---------- */
@@ -257,7 +263,7 @@ svg {
   color: var(--text);
   width: 44px;
   height: 44px;
-  border-radius: 12px;
+  border-radius: 14px;
   display: grid;
   place-items: center;
   cursor: pointer;
@@ -1025,6 +1031,33 @@ svg {
   color: var(--danger);
 }
 
+.drawer__confirm {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  font-size: 0.85rem;
+  color: var(--text-dim);
+}
+
+.drawer__confirm button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-decoration: underline;
+  font-family: inherit;
+}
+
+.drawer__confirm button:first-of-type {
+  color: var(--danger);
+}
+
+.drawer__confirm button:last-of-type {
+  color: var(--text);
+}
+
 .checkout-done {
   text-align: center;
   margin-top: 2.5rem;
@@ -1038,8 +1071,8 @@ svg {
   width: 64px;
   height: 64px;
   border-radius: 50%;
-  background: linear-gradient(135deg, #4caf76, #6fd49a);
-  color: #08200f;
+  background: linear-gradient(135deg, #128c7e, #25d366);
+  color: #fff;
   font-size: 2rem;
   display: grid;
   place-items: center;
@@ -1206,8 +1239,18 @@ svg {
     grid-template-columns: 1fr;
   }
   .hero__lips {
-    width: 120px;
-    opacity: 0.55;
+    width: 96px;
+    top: 1rem;
+    right: 1rem;
+    opacity: 0.5;
+  }
+}
+
+/* En teléfonos los labios decorativos pisan el eyebrow: se ocultan
+   (la identidad de labios ya vive en el logo). */
+@media (max-width: 600px) {
+  .hero__lips {
+    display: none;
   }
 }
 

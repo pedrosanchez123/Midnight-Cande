@@ -1,7 +1,7 @@
 // Formatea un número como precio en pesos.
-const formatter = new Intl.NumberFormat('es-CL', {
+const formatter = new Intl.NumberFormat('es-AR', {
   style: 'currency',
-  currency: 'CLP',
+  currency: 'ARS',
   maximumFractionDigits: 0,
 })
 
