@@ -1,3 +1,5 @@
+import Lips from './Lips.jsx'
+
 // Recreación del logo circular de Midnight Club (estilo perfil de Instagram).
 // 👉 Si tienes el archivo real, guárdalo en /public/logo.png y reemplaza el uso
 //    de <Logo /> por: <img src="/logo.png" alt="Midnight Club" className="brand__img" />
@@ -45,13 +47,10 @@ export default function Logo({ size = 46, withTagline = false }) {
         Club
       </text>
 
-      {/* labios beso */}
-      <g transform={`translate(150 ${withTagline ? 132 : 142}) scale(0.9)`}>
-        <path
-          d="M0 6C-7 -4 -22 -6 -33 0C-26 1 -16 8 -9 15C-18 11 -30 11 -40 14C-28 30 -14 38 0 38C14 38 28 30 40 14C30 11 18 11 9 15C16 8 26 1 33 0C22 -6 7 -4 0 6Z"
-          fill="#c11d6a"
-        />
-        <path d="M-30 16C-16 22 -8 23 0 20C8 23 16 22 30 16C18 13 8 14 0 18C-8 14 -18 13 -30 16Z" fill="#ff6fae" opacity="0.75" />
+      {/* labios beso (dos marcas superpuestas, como el logo real) */}
+      <g transform={`translate(144 ${withTagline ? 112 : 122})`}>
+        <Lips id="logoA" x="0" y="0" scale="0.5" rotate="-8" />
+        <Lips id="logoB" x="30" y="16" scale="0.4" rotate="12" />
       </g>
 
       {withTagline && (
