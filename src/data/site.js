@@ -1,7 +1,6 @@
 // Configuración central de la marca y enlaces sociales.
-// 👉 Reemplaza WHATSAPP_NUMBER por el número real de Cande (formato internacional,
-//    solo dígitos, sin "+", espacios ni guiones). Ej: Argentina => 5491122334455.
-const WHATSAPP_NUMBER = '5491122334455' // ← PLACEHOLDER: cambiar por el de Cande
+// WhatsApp en formato internacional, solo dígitos (+54 9 11 7669-5369).
+const WHATSAPP_NUMBER = '5491176695369'
 const WHATSAPP_MESSAGE = 'Hola Midnight Club! Me interesa una prenda 💋'
 
 export const site = {
@@ -10,7 +9,8 @@ export const site = {
   taglineAlt: 'Be part of the club.',
   bio: 'Indumentaria femenina · Más que ropa, una comunidad.',
   instagramHandle: '@midnightclb.ind',
-  instagramUrl: 'https://instagram.com/midnightclb.ind',
+  instagramUrl:
+    'https://www.instagram.com/midnightclb.ind?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==',
   whatsappUrl: `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(WHATSAPP_MESSAGE)}`,
   email: 'hola@midnightclub.com',
   creatorHandle: '@_cande_sol',

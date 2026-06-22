@@ -145,20 +145,16 @@ svg {
   color: var(--pink);
 }
 
-.brand__logo {
-  width: 34px;
-  height: 34px;
+.brand__svg,
+.brand__img {
+  width: 46px;
+  height: 46px;
   border-radius: 50%;
-  display: grid;
-  place-items: center;
-  background: radial-gradient(circle at 30% 25%, #2a2360, var(--navy) 70%);
-  border: 1px solid var(--border);
-  font-family: 'Playfair Display', Georgia, serif;
-  font-style: italic;
-  font-weight: 700;
-  font-size: 0.95rem;
-  color: var(--pink);
-  box-shadow: 0 0 16px rgba(255, 111, 174, 0.35);
+  box-shadow: 0 0 16px rgba(255, 111, 174, 0.3);
+}
+
+.brand__img {
+  object-fit: cover;
 }
 
 .nav-links {

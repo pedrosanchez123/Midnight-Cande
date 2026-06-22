@@ -2,15 +2,15 @@ import { site } from '../data/site.js'
 
 function Lips() {
   return (
-    <svg className="hero__lips" viewBox="0 0 100 70" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <svg className="hero__lips" viewBox="-50 -12 100 60" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
       <path
-        d="M50 22C40 8 22 6 10 14c8 2 14 8 18 14-10-4-20-3-28 2 10 10 28 22 50 22s40-12 50-22c-8-5-18-6-28-2 4-6 10-12 18-14C78 6 60 8 50 22z"
+        d="M0 6C-7 -4 -22 -6 -33 0C-26 1 -16 8 -9 15C-18 11 -30 11 -40 14C-28 30 -14 38 0 38C14 38 28 30 40 14C30 11 18 11 9 15C16 8 26 1 33 0C22 -6 7 -4 0 6Z"
         fill="#c11d6a"
       />
       <path
-        d="M22 30c8 6 18 9 28 9s20-3 28-9c-8-2-18-1-28 3-10-4-20-5-28-3z"
+        d="M-30 16C-16 22 -8 23 0 20C8 23 16 22 30 16C18 13 8 14 0 18C-8 14 -18 13 -30 16Z"
         fill="#ff6fae"
-        opacity="0.7"
+        opacity="0.75"
       />
     </svg>
   )
