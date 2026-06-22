@@ -1,5 +1,6 @@
-import { useMemo, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import { products, categories, colors } from '../data/products.js'
+import { loadStock } from '../data/stock.js'
 import ProductCard from './ProductCard.jsx'
 
 const sortOptions = [
@@ -14,6 +15,18 @@ export default function Catalog() {
   const [color, setColor] = useState('Todos')
   const [query, setQuery] = useState('')
   const [sort, setSort] = useState('destacados')
+  const [stock, setStock] = useState(null)
+
+  // Carga el stock (Google Sheet / fallback) al montar.
+  useEffect(() => {
+    let active = true
+    loadStock().then((s) => {
+      if (active) setStock(s)
+    })
+    return () => {
+      active = false
+    }
+  }, [])
 
   const filtered = useMemo(() => {
     let list = products.filter((p) => {
@@ -118,7 +131,7 @@ export default function Catalog() {
       ) : (
         <div className="grid">
           {filtered.map((p) => (
-            <ProductCard key={p.id} product={p} />
+            <ProductCard key={p.id} product={p} stock={stock} />
           ))}
         </div>
       )}

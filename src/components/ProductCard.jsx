@@ -1,6 +1,7 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useCart } from '../context/CartContext.jsx'
 import { formatPrice } from '../utils/format.js'
+import { isProductOut, isSizeOut } from '../data/stock.js'
 
 // Paleta para el placeholder visual según el color de la prenda.
 const colorMap = {
@@ -53,22 +54,38 @@ function Thumb({ product }) {
   )
 }
 
-export default function ProductCard({ product }) {
+export default function ProductCard({ product, stock }) {
   const { addItem } = useCart()
   const [size, setSize] = useState(product.sizes[0])
   const [added, setAdded] = useState(false)
 
+  const soldOut = isProductOut(stock, product)
+  const selectedOut = isSizeOut(stock, product.id, size)
+
+  // Si el talle elegido queda agotado (al cargar el stock), salta al primero disponible.
+  useEffect(() => {
+    if (isSizeOut(stock, product.id, size)) {
+      const firstAvailable = product.sizes.find((s) => !isSizeOut(stock, product.id, s))
+      if (firstAvailable) setSize(firstAvailable)
+    }
+  }, [stock, product, size])
+
   function handleAdd() {
+    if (selectedOut || soldOut) return
     addItem(product, size)
     setAdded(true)
     setTimeout(() => setAdded(false), 1200)
   }
 
   return (
-    <article className="card">
+    <article className={`card ${soldOut ? 'card--out' : ''}`}>
       <div className="card__media">
         <Thumb product={product} />
-        {product.tag && <span className="card__tag">{product.tag}</span>}
+        {soldOut ? (
+          <span className="card__tag card__tag--out">Sin stock</span>
+        ) : (
+          product.tag && <span className="card__tag">{product.tag}</span>
+        )}
       </div>
       <div className="card__body">
         <div className="card__head">
@@ -80,25 +97,39 @@ export default function ProductCard({ product }) {
         </p>
         <p className="card__desc">{product.description}</p>
 
-        <div className="card__sizes" role="group" aria-label={`Talla de ${product.name}`}>
-          {product.sizes.map((s) => (
-            <button
-              key={s}
-              className={`size-chip ${size === s ? 'size-chip--active' : ''}`}
-              onClick={() => setSize(s)}
-              type="button"
-            >
-              {s}
-            </button>
-          ))}
+        <div className="card__sizes" role="group" aria-label={`Talle de ${product.name}`}>
+          {product.sizes.map((s) => {
+            const out = isSizeOut(stock, product.id, s)
+            return (
+              <button
+                key={s}
+                className={`size-chip ${size === s ? 'size-chip--active' : ''} ${
+                  out ? 'size-chip--out' : ''
+                }`}
+                onClick={() => !out && setSize(s)}
+                disabled={out}
+                title={out ? 'Agotado' : undefined}
+                type="button"
+              >
+                {s}
+              </button>
+            )
+          })}
         </div>
 
         <button
           className={`btn btn--primary btn--block ${added ? 'btn--added' : ''}`}
           onClick={handleAdd}
+          disabled={soldOut || selectedOut}
           type="button"
         >
-          {added ? '✓ Agregado' : 'Agregar al carrito'}
+          {soldOut
+            ? 'Sin stock'
+            : selectedOut
+              ? 'Talle agotado'
+              : added
+                ? '✓ Agregado'
+                : 'Agregar al carrito'}
         </button>
       </div>
     </article>

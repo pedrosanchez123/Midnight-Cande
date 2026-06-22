@@ -111,6 +111,13 @@ svg {
   transform: scale(0.97);
 }
 
+.btn:disabled {
+  cursor: not-allowed;
+  filter: grayscale(0.4) brightness(0.7);
+  box-shadow: none;
+  transform: none;
+}
+
 /* Botón con trazo (borde) degradado de Instagram, animado (gira) */
 @property --ig-angle {
   syntax: '<angle>';
@@ -521,6 +528,16 @@ svg {
   border-radius: 999px;
 }
 
+.card__tag--out {
+  background: var(--surface-2);
+  color: var(--text);
+  border: 1px solid var(--border);
+}
+
+.card--out .card__image {
+  filter: grayscale(0.7) brightness(0.6);
+}
+
 .card__body {
   padding: 1.1rem;
   display: flex;
@@ -595,6 +612,18 @@ svg {
   border-color: var(--pink);
   color: #2b0a1a;
   font-weight: 600;
+}
+
+.size-chip--out {
+  color: var(--text-dim);
+  text-decoration: line-through;
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.size-chip--out:hover {
+  border-color: var(--border);
+  color: var(--text-dim);
 }
 
 .empty {
