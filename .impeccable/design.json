@@ -1,0 +1,153 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-06-22T00:00:00.000Z",
+  "title": "Design System: Midnight Club",
+  "extensions": {
+    "colorMeta": {
+      "pink": {
+        "role": "primary",
+        "displayName": "Fucsia Neón",
+        "canonical": "#ff6fae",
+        "tonalRamp": ["#2b0a1a", "#52132f", "#7a1c45", "#a3275c", "#c93f7e", "#ff6fae", "#ff9ec8", "#ffd0e4"]
+      },
+      "magenta": {
+        "role": "primary",
+        "displayName": "Magenta Labial",
+        "canonical": "#c11d6a",
+        "tonalRamp": ["#240614", "#3f0c24", "#5e1235", "#7d1846", "#9e1f58", "#c11d6a", "#e05a92", "#f2a6c4"]
+      },
+      "navy": {
+        "role": "neutral",
+        "displayName": "Azul Medianoche",
+        "canonical": "#1a1740",
+        "tonalRamp": ["#0b0a1f", "#12102e", "#1a1740", "#241f5a", "#322c78", "#4a4399", "#6f68bf", "#a8a3e0"]
+      },
+      "surface": {
+        "role": "neutral",
+        "displayName": "Superficie Noche",
+        "canonical": "#16101f",
+        "tonalRamp": ["#0a0712", "#100b1d", "#16101f", "#211733", "#2e2440", "#43365e", "#6b5b8a", "#a99fc0"]
+      },
+      "pearl": {
+        "role": "neutral",
+        "displayName": "Blanco Perla",
+        "canonical": "#f4eef4",
+        "tonalRamp": ["#1c1820", "#2e2832", "#474150", "#655d70", "#867d94", "#aaa0b8", "#d2cad9", "#f4eef4"]
+      },
+      "lilac-dim": {
+        "role": "neutral",
+        "displayName": "Lila Apagado",
+        "canonical": "#ab9fb8",
+        "tonalRamp": ["#1e1a26", "#322c40", "#473f59", "#5f5573", "#7a6f90", "#9588ab", "#ab9fb8", "#cfc7da"]
+      }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Display", "purpose": "Titular del hero; serif de alto contraste con realce fucsia en cursiva." },
+      "headline": { "displayName": "Headline", "purpose": "Títulos de sección." },
+      "title": { "displayName": "Title", "purpose": "Marca y nombres de prenda." },
+      "body": { "displayName": "Body", "purpose": "Párrafos y descripciones en Inter." },
+      "label": { "displayName": "Label", "purpose": "Eyebrows y metadatos: MAYÚSCULAS con tracking ancho." }
+    },
+    "shadows": [
+      { "name": "glow-pink", "value": "0 14px 40px rgba(255,111,174,0.18)", "purpose": "Halo de neón bajo los botones primarios." },
+      { "name": "deep", "value": "0 18px 50px rgba(0,0,0,0.55)", "purpose": "Hover de tarjetas, drawer y botones flotantes." }
+    ],
+    "motion": [
+      { "name": "ease-out", "value": "cubic-bezier(0.23, 1, 0.32, 1)", "purpose": "Curva por defecto para hover/press de UI." },
+      { "name": "ease-in-out", "value": "cubic-bezier(0.77, 0, 0.175, 1)", "purpose": "Movimiento que entra y sale en pantalla." },
+      { "name": "ig-spin", "value": "4s linear infinite", "purpose": "Giro del borde cónico de Instagram en el CTA." }
+    ],
+    "breakpoints": [
+      { "name": "mobile", "value": "820px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "CTA principal: degradado magenta→fucsia con glow.",
+      "html": "<button class=\"ds-btn-primary\">Ver catálogo</button>",
+      "css": ".ds-btn-primary { display:inline-flex; align-items:center; gap:.5rem; border:none; border-radius:999px; padding:.7rem 1.5rem; font:600 .95rem Inter,sans-serif; color:#fff; cursor:pointer; background:linear-gradient(135deg,#c11d6a,#ff6fae); box-shadow:0 14px 40px rgba(255,111,174,.18); transition:transform .16s cubic-bezier(.23,1,.32,1),filter .2s; } .ds-btn-primary:hover { transform:translateY(-2px); filter:brightness(1.08); } .ds-btn-primary:active { transform:scale(.97); }"
+    },
+    {
+      "name": "Ghost Button",
+      "kind": "button",
+      "refersTo": "button-ghost",
+      "description": "Acción secundaria: contorno que se vuelve fucsia en hover.",
+      "html": "<button class=\"ds-btn-ghost\">Conócenos</button>",
+      "css": ".ds-btn-ghost { display:inline-flex; align-items:center; gap:.5rem; border:1px solid #2e2440; border-radius:999px; padding:.7rem 1.5rem; font:600 .95rem Inter,sans-serif; color:#f4eef4; background:transparent; cursor:pointer; transition:transform .16s cubic-bezier(.23,1,.32,1),border-color .2s,color .2s; } .ds-btn-ghost:hover { transform:translateY(-2px); border-color:#ff6fae; color:#ff9ec8; } .ds-btn-ghost:active { transform:scale(.97); }"
+    },
+    {
+      "name": "Instagram Button",
+      "kind": "button",
+      "refersTo": "button-instagram",
+      "description": "CTA firma con borde cónico de Instagram que gira.",
+      "html": "<button class=\"ds-btn-ig\">Únete al club</button>",
+      "css": "@property --ig-angle { syntax:'<angle>'; inherits:false; initial-value:0deg; } .ds-btn-ig { border:2px solid transparent; border-radius:999px; padding:.7rem 1.5rem; font:600 .95rem Inter,sans-serif; color:#fff; cursor:pointer; background:linear-gradient(#100b1d,#100b1d) padding-box,conic-gradient(from var(--ig-angle),#feda75,#fa7e1e,#d62976,#962fbf,#4f5bd5,#962fbf,#d62976,#fa7e1e,#feda75) border-box; animation:ig-spin 4s linear infinite; } @keyframes ig-spin { to { --ig-angle:360deg; } } .ds-btn-ig:active { transform:scale(.97); } @media (prefers-reduced-motion:reduce){ .ds-btn-ig{ animation:none; } }"
+    },
+    {
+      "name": "Filter Chip",
+      "kind": "chip",
+      "refersTo": "chip",
+      "description": "Filtro de catálogo; activo invierte a fucsia.",
+      "html": "<button class=\"ds-chip\">Vestidos</button><button class=\"ds-chip ds-chip--active\">Todos</button>",
+      "css": ".ds-chip { background:#16101f; border:1px solid #2e2440; color:#ab9fb8; border-radius:999px; padding:.45rem 1rem; font:.88rem Inter,sans-serif; cursor:pointer; transition:color .18s,border-color .18s,transform .16s cubic-bezier(.23,1,.32,1); } .ds-chip:hover { color:#f4eef4; border-color:#ff6fae; } .ds-chip:active { transform:scale(.94); } .ds-chip--active { background:#ff6fae; border-color:#ff6fae; color:#2b0a1a; font-weight:600; }"
+    },
+    {
+      "name": "Product Card",
+      "kind": "card",
+      "refersTo": "card",
+      "description": "Tarjeta de prenda; plana en reposo, sube en hover.",
+      "html": "<article class=\"ds-card\"><div class=\"ds-card__name\">Vestido Eclipse</div><div class=\"ds-card__price\">$45.990</div><div class=\"ds-card__meta\">VESTIDOS · NEGRO</div></article>",
+      "css": ".ds-card { background:#16101f; border:1px solid #2e2440; border-radius:14px; padding:1.1rem; color:#f4eef4; transition:transform .2s cubic-bezier(.23,1,.32,1),border-color .2s,box-shadow .2s; } .ds-card:hover { transform:translateY(-4px); border-color:#ff6fae; box-shadow:0 18px 50px rgba(0,0,0,.55); } .ds-card__name { font:700 1.15rem 'Playfair Display',serif; } .ds-card__price { color:#ff9ec8; font-weight:700; margin-top:.2rem; } .ds-card__meta { color:#ab9fb8; font:600 .78rem Inter,sans-serif; letter-spacing:2px; text-transform:uppercase; margin-top:.4rem; }"
+    },
+    {
+      "name": "Search Input",
+      "kind": "input",
+      "refersTo": "input",
+      "description": "Campo de búsqueda/formulario; foco fucsia.",
+      "html": "<input class=\"ds-input\" placeholder=\"Buscar prendas…\" />",
+      "css": ".ds-input { background:#0a0712; border:1px solid #2e2440; border-radius:10px; color:#f4eef4; padding:.7rem .9rem; font:.95rem Inter,sans-serif; } .ds-input::placeholder { color:#ab9fb8; } .ds-input:focus { outline:none; border-color:#ff6fae; }"
+    },
+    {
+      "name": "Nav Link",
+      "kind": "nav",
+      "refersTo": "nav-link",
+      "description": "Link de navegación con subrayado fucsia que crece.",
+      "html": "<a class=\"ds-nav\" href=\"#\">Catálogo</a>",
+      "css": ".ds-nav { position:relative; color:#ab9fb8; font:.95rem Inter,sans-serif; text-decoration:none; transition:color .2s; } .ds-nav::after { content:''; position:absolute; left:0; bottom:-4px; width:100%; height:1.5px; background:#ff6fae; transform:scaleX(0); transform-origin:left; transition:transform .25s cubic-bezier(.23,1,.32,1); } .ds-nav:hover { color:#ff9ec8; } .ds-nav:hover::after { transform:scaleX(1); }"
+    }
+  ],
+  "narrative": {
+    "northStar": "Editorial de medianoche",
+    "overview": "Midnight Club se ve como una revista de moda fotografiada a las 3 a.m.: mucho negro respirando alrededor de titulares serif dramáticos, un fucsia que aparece como el flash de un labial y se va. No es una tienda; es un editorial con carrito. La densidad es baja y deliberada porque la escasez (drops, no restock) es parte del lujo. El sistema rechaza el fast-fashion genérico tipo Shein, el e-commerce de plantilla frío y el AI-slop de degradados violetas; acá lo oscuro y el brillo fucsia son identidad elegida, no efecto por defecto.",
+    "keyCharacteristics": [
+      "Negro tinta como lienzo dominante; el color es un acento raro y caro.",
+      "Titulares serif de alto contraste (Playfair Display) que cargan el drama.",
+      "Fucsia y magenta como única familia de acento, sin segundo color.",
+      "Editorial, mobile-first, poco denso: el aire negro es parte del diseño."
+    ],
+    "rules": [
+      { "name": "The One Lipstick Rule", "body": "El fucsia/magenta es la única familia de acento. Prohibido un segundo color de marca; si una pantalla necesita más color, la respuesta es más fucsia.", "section": "colors" },
+      { "name": "The Black-First Rule", "body": "El fondo siempre es negro tinta; las superficies se distinguen por capas tonales, no por bordes brillantes.", "section": "colors" },
+      { "name": "The Serif-Carries-Drama Rule", "body": "Todo lo de marca va en Playfair Display; Inter nunca lleva un titular grande.", "section": "typography" },
+      { "name": "The Wide-Caps Label Rule", "body": "Etiquetas y eyebrows siempre en MAYÚSCULAS con letter-spacing ≥2px.", "section": "typography" },
+      { "name": "The Flat-At-Rest Rule", "body": "Las superficies son planas en reposo; una sombra es una reacción (hover, flotante), no decoración.", "section": "elevation" }
+    ],
+    "dos": [
+      "Do mantener el negro tinta (#0a0712) como fondo dominante y dejar respirar el contenido.",
+      "Do usar el fucsia/magenta como único acento, con moderación.",
+      "Do poner todo lo de marca en Playfair Display; etiquetas en Inter MAYÚSCULAS con tracking ≥2px.",
+      "Do mantener píldoras (999px) en botones y chips, y el press feedback scale(0.97).",
+      "Do respetar prefers-reduced-motion y el contraste legible sobre oscuro."
+    ],
+    "donts": [
+      "Don't caer en el look fast-fashion genérico tipo Shein (grillas saturadas, mil productos sin curaduría).",
+      "Don't parecer un e-commerce de plantilla frío (azules/grises corporativos).",
+      "Don't usar degradados violetas genéricos ni glows decorativos sin intención (AI-slop).",
+      "Don't introducir un segundo color de marca ni titulares grandes en Inter.",
+      "Don't llenar las superficies de sombras permanentes: planas en reposo."
+    ]
+  }
+}
