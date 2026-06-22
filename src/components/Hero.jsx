@@ -5,7 +5,7 @@ import { InstagramIcon } from './QuickActions.jsx'
 
 // Usa una imagen real (/public/lips.png) si existe; si no, el beso SVG.
 // 👉 Para usar tu imagen: guárdala como  public/lips.png  (ideal con fondo transparente).
-const LIPS_SRC = '/lips.png'
+const LIPS_SRC = `${import.meta.env.BASE_URL}lips.png`
 
 function HeroLips() {
   const [useFallback, setUseFallback] = useState(false)

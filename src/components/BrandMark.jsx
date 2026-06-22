@@ -6,7 +6,7 @@ import Logo from './Logo.jsx'
 // 👉 PARA USAR EL LOGO REAL:
 //    1. Guarda la imagen del logo como  public/logo.png  (o .jpg/.svg, ajusta LOGO_SRC).
 //    2. Listo. Se carga automáticamente; si el archivo falta, se ve la recreación.
-const LOGO_SRC = '/logo.png'
+const LOGO_SRC = `${import.meta.env.BASE_URL}logo.png`
 
 export default function BrandMark({ size = 46 }) {
   const [useFallback, setUseFallback] = useState(false)
