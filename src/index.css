@@ -940,12 +940,12 @@ svg {
 
 .hero__lips {
   position: absolute;
-  top: 2rem;
-  right: 1.5rem;
-  width: 120px;
+  top: 1.5rem;
+  right: 2rem;
+  width: 200px;
   height: auto;
-  opacity: 0.85;
-  filter: drop-shadow(0 8px 24px rgba(255, 111, 174, 0.4));
+  opacity: 0.9;
+  filter: drop-shadow(0 10px 30px rgba(255, 111, 174, 0.45));
   pointer-events: none;
 }
 
@@ -1072,7 +1072,7 @@ svg {
     grid-template-columns: 1fr;
   }
   .hero__lips {
-    width: 84px;
-    opacity: 0.6;
+    width: 120px;
+    opacity: 0.55;
   }
 }
