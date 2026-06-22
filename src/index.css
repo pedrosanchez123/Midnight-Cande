@@ -98,13 +98,38 @@ svg {
   color: var(--pink-soft);
 }
 
-/* Botón con trazo (borde) degradado de Instagram */
+/* Botón con trazo (borde) degradado de Instagram, animado (gira) */
+@property --ig-angle {
+  syntax: '<angle>';
+  inherits: false;
+  initial-value: 0deg;
+}
+
 .btn--ig {
   border: 2px solid transparent;
   color: #fff;
   background:
     linear-gradient(var(--bg-soft), var(--bg-soft)) padding-box,
-    linear-gradient(115deg, #feda75, #fa7e1e 25%, #d62976 50%, #962fbf 75%, #4f5bd5) border-box;
+    conic-gradient(
+        from var(--ig-angle),
+        #feda75,
+        #fa7e1e,
+        #d62976,
+        #962fbf,
+        #4f5bd5,
+        #962fbf,
+        #d62976,
+        #fa7e1e,
+        #feda75
+      )
+      border-box;
+  animation: ig-spin 4s linear infinite;
+}
+
+@keyframes ig-spin {
+  to {
+    --ig-angle: 360deg;
+  }
 }
 
 .btn--ig svg {
@@ -115,6 +140,12 @@ svg {
 .btn--ig:hover {
   filter: brightness(1.12);
   box-shadow: 0 8px 26px rgba(214, 41, 118, 0.35);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .btn--ig {
+    animation: none;
+  }
 }
 
 .btn--block {
@@ -481,14 +512,15 @@ svg {
   transition: all 0.15s ease;
 }
 
-.size-chip:hover {
+.size-chip:hover:not(.size-chip--active) {
   color: var(--text);
+  border-color: var(--pink);
 }
 
 .size-chip--active {
-  background: var(--text);
-  border-color: var(--text);
-  color: var(--bg);
+  background: var(--pink);
+  border-color: var(--pink);
+  color: #2b0a1a;
   font-weight: 600;
 }
 
